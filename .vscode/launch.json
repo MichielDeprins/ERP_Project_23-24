@@ -1,0 +1,73 @@
+{
+  "configurations": [
+    {
+      "name": "Start erp-23-24",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "cwd": "${workspaceFolder}/erp-23-24",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": ["fiori", "run"],
+      "args": ["--open", "test/flpSandbox.html#erp2324-display"],
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "outputCapture": "std",
+      "port": 9229,
+      "env": {
+        "DEBUG": "--inspect",
+        "FIORI_TOOLS_URL_PARAMS": "sap-client=238&sap-ui-xx-viewCache=false"
+      }
+    },
+    {
+      "name": "Start erp-23-24 Mock",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/erp-23-24",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": ["fiori", "run"],
+      "args": [
+        "--config",
+        "./ui5-mock.yaml",
+        "--open",
+        "test/flpSandbox.html#erp2324-display"
+      ],
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "outputCapture": "std",
+      "port": 9229,
+      "env": {
+        "FIORI_TOOLS_URL_PARAMS": "sap-client=238&sap-ui-xx-viewCache=false"
+      }
+    },
+    {
+      "name": "Start erp-23-24 Local",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/erp-23-24",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": ["fiori", "run"],
+      "args": [
+        "--config",
+        "./ui5-local.yaml",
+        "--open",
+        "test/flpSandbox.html#erp2324-display"
+      ],
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "outputCapture": "std",
+      "port": 9229,
+      "env": {
+        "FIORI_TOOLS_URL_PARAMS": "sap-client=238&sap-ui-xx-viewCache=false"
+      }
+    }
+  ],
+  "compounds": []
+}

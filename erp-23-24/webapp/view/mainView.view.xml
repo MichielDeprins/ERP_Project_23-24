@@ -2,6 +2,80 @@
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
+    <content>
+    <Table
+                id="MaterialTable"
+                items="{/MaterialSet}"
+                headerText="Materials (Click on an item to set as navigated)"
+            >
+            <columns>
+             <Column
+                        id="Materials"
+                        width="12em"
+                    >
+                        <VBox>
+                            <Text text="Material number" />
+                        </VBox>
+                    </Column>
+                 <Column
+                        id="Maktx"
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                        hAlign="End"
+                    >
+                        <VBox>
+                            <Text text="Material Description" />
+                        </VBox>
+                    </Column>
+            <Column
+                        id="Matkl"
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                        hAlign="End"
+                    >
+                        <VBox>
+                            <Text text="Material Group
+" />
+                        </VBox>
+                    </Column>
+                <Column
+                        id="Mtart"
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                        hAlign="End"
+                    >
+                        <VBox>
+                            <Text text="Material Type" />
+                        </VBox>
+                    </Column>
+             <Column
+                        id="Mbrsh"
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                        hAlign="End"
+                    >
+                        <VBox>
+                            <Text text="Industry Sector" />
+                        </VBox>
+                    </Column>
+                </columns>
+                  <items>
+                    <ColumnListItem
+                        type="Navigation"
+                        vAlign="Middle"
+                        press=".onListItemPress"
+                    >
+                        <cells>
+                            <ObjectIdentifier title="{Matnr}" />
+                            <Text text="{Maktx}" />
+                            <Text text="{Matkl}" />
+                            <Text text="{Mtart}" />
+                            <Text text="{Mbrsh}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+    </Table>
+    </content>
         <content />
     </Page>
 </mvc:View>
