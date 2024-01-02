@@ -1,15 +1,19 @@
-sap.ui.define([
-    "sap/ui/core/mvc/Controller"
-],
-    /**
-     * @param {typeof sap.ui.core.mvc.Controller} Controller
-     */
-    function (Controller) {
-        "use strict";
+sap.ui.define(
+  ["sap/ui/core/mvc/Controller", "sap/f/library"],
 
-        return Controller.extend("erp2324.controller.mainView", {
-            onInit: function () {
+  /**
+   * @param {typeof sap.ui.core.mvc.Controller} Controller
+   */
+  function (Controller, fioriLibrary) {
+    "use strict";
 
-            }
-        });
+    return Controller.extend("shipmentmonitor.controller.Main", {
+      onInit: function () {},
+      onListItemPress: function () {
+        var oFCL = this.oView.getParent().getParent();
+
+        oFCL.setLayout(fioriLibrary.LayoutType.TwoColumnsMidExpanded);
+      },
     });
+  }
+);

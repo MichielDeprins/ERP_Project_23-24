@@ -1,7 +1,17 @@
 <mvc:View controllerName="erp2324.controller.App"
     xmlns:html="http://www.w3.org/1999/xhtml"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
-    <App id="app">
-    </App>
+    xmlns:mvc="sap.ui.core.mvc" 
+    displayBlock="true"
+  xmlns="sap.m" 
+  xmlns:f="sap.f"
+	height="100%" >
+
+    <f:FlexibleColumnLayout id="fcl" backgroundDesign="Solid">
+        <f:beginColumnPages>
+			<mvc:XMLView id="beginView" viewName="erp2324.view.MainView"/>
+		</f:beginColumnPages>
+        <f:midColumnPages>
+            <mvc:XMLView  id="detailView" viewName="erp2324.view.Material"></mvc:XMLView>
+        </f:midColumnPages>
+    </f:FlexibleColumnLayout>
 </mvc:View>
