@@ -5,17 +5,8 @@ sap.ui.define(
     "sap/ui/Device",
     "sap/ui/model/json/JSONModel",
     "../util/SortAndFilterHelper",
-    "sap/m/Dialog",
-    "sap/m/List",
-    "sap/m/StandardListItem",
-    "sap/m/Button",
-    "sap/m/ButtonType",
-    "sap/m/Label",
-    "sap/m/Input",
-    "sap/m/Text",
-    "sap/m/VBox",
-    "sap/m/HBox",
-    "sap/m/TextArea",
+    "sap/ui/export/Spreadsheet",
+    "sap/ui/export/library",
   ],
 
   /**
@@ -26,19 +17,9 @@ sap.ui.define(
     fioriLibrary,
     Device,
     JSONModel,
-    Fragment,
     SortAndFilterHelper,
-    Dialog,
-    List,
-    StandardListItem,
-    Button,
-    ButtonType,
-    Label,
-    Input,
-    Text,
-    VBox,
-    HBox,
-    TextArea
+    Spreadsheet,
+    exportLibrary
   ) {
     "use strict";
 
@@ -102,37 +83,66 @@ sap.ui.define(
         }
         return pDialog;
       },
-      handleSortDialogConfirm: function (oEvent) {
-        var oTable = this.byId("MaterialTable"),
-          mParams = oEvent.getParameters(),
-          oBinding = oTable.getBinding("MATNR"),
-          sPath,
-          bDescending,
-          aSorters = [];
+      onExport: function (oEvent) {
+        let aCols, oRowBinding, oSettings, oSheet, oTable;
 
-        sPath = mParams.sortItem.getKey();
-        bDescending = mParams.sortDescending;
-        aSorters.push(new Sorter(sPath, bDescending));
+        oTable = this.getView().byId("MaterialTable");
+        oRowBinding = oTable.getBinding("items");
+        aCols = this.createColumnConfig();
 
-        // apply the selected sort and group settings
-        oBinding.sort(aSorters);
+        oSettings = {
+          workbook: {
+            columns: aCols,
+            hierarchyLevel: "Level",
+          },
+          dataSource: oRowBinding,
+          fileName: "Materials_Table.xlsx",
+          worker: false, // We need to disable worker because we are using a MockServer as OData Service
+        };
+
+        oSheet = new Spreadsheet(oSettings);
+        oSheet.build().finally(function () {
+          oSheet.destroy();
+        });
       },
-      handleFilterDialogConfirm: function (oEvent) {
-        var oTable = this.byId("MaterialTable"),
-          mParams = oEvent.getParameters(),
-          oBinding = oTable.getBinding("MATNR"),
-          aFilters = [];
+      createColumnConfig: function () {
+        let aCols = [];
+        let EdmType = exportLibrary.EdmType;
 
-        mParams.filterItems.forEach(function (oItem) {
-          let sPath = oItem.getParent().getKey(),
-            sOperator = "EQ",
-            sValue1 = oItem.getKey(),
-            oFilter = new Filter(sPath, sOperator, sValue1);
-          aFilters.push(oFilter);
+        aCols.push({
+          label: "Material Number",
+          property: ["Matnr"],
+          type: EdmType.String,
         });
 
-        // apply filter settings
-        oBinding.filter(aFilters);
+        aCols.push({
+          label: "Material Description",
+          type: EdmType.String,
+          property: "Maktx",
+          scale: 0,
+        });
+
+        aCols.push({
+          label: "Material Group",
+          type: EdmType.String,
+          property: "Matkl",
+          scale: 0,
+        });
+
+        aCols.push({
+          label: "Material Type",
+          type: EdmType.String,
+          property: "Mtart",
+          scale: 0,
+        });
+        aCols.push({
+          label: "Industry Sector",
+          type: EdmType.String,
+          property: "Mbrsh",
+          scale: 0,
+        });
+
+        return aCols;
       },
     });
   }

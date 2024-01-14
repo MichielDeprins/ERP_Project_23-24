@@ -5,8 +5,8 @@
 		confirm="handleFilterDialogConfirm">
 		<filterItems>
 			<ViewSettingsFilterItem
-				text="MATNR"
-				key="MATNR"
+				text="Matnr"
+				key="Matnr"
 				multiSelect="false">
 				<items>
                     <ViewSettingsItem text="TRFR3393" key="TRFR3393" />

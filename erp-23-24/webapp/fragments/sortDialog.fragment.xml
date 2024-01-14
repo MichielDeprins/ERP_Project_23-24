@@ -3,8 +3,12 @@
 	xmlns:core="sap.ui.core">
 	<ViewSettingsDialog
 		confirm="handleSortDialogConfirm">
-		<sortItems>
-			<ViewSettingsItem text="Material Number" key="MATNR" selected="true" />
+		<sortItems >
+			<ViewSettingsItem text="Material Number" key="Matnr" selected="true" />
+			<ViewSettingsItem text="Material Description" key="Maktx" selected="false" />
+			<ViewSettingsItem text="Material Group" key="Matkl" selected="false" />
+			<ViewSettingsItem text="Material Type" key="Mtart" selected="false" />
+			<ViewSettingsItem text="Industry Sector" key="Mbrsh" selected="false" />
 		</sortItems>
 	</ViewSettingsDialog>
 </core:FragmentDefinition>

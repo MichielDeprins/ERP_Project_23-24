@@ -24,7 +24,7 @@ sap.ui.define(
         console.log("otable: " + oTable);
         oTable.bindItems({
           path: `/MaterialSet('${sMaterialID}')/ManufacturerSet`,
-          template: oTable.getItems()[0].clone(),
+          template: oTable.getBindingInfo("items").template,
         });
       },
 
