@@ -126,6 +126,16 @@
           "pattern": "detail/{materialParam}/{layout}",
           "name": "detail",
           "target": ["main", "detail"]
+        },
+        {
+          "pattern": "sales",
+          "name": "sales",
+          "target": ["sales"]
+        },
+        {
+          "pattern": "saleItem/{SaleParam}/{layout}",
+          "name": "saleItem",
+          "target": ["sales", "saleItem"]
         }
       ],
       "targets": {
@@ -135,6 +145,14 @@
         },
         "detail": {
           "viewName": "Material",
+          "controlAggregation": "midColumnPages"
+        },
+        "sales": {
+          "viewName": "Sales",
+          "controlAggregation": "beginColumnPages"
+        },
+        "saleItem": {
+          "viewName": "SaleItem",
           "controlAggregation": "midColumnPages"
         }
       }

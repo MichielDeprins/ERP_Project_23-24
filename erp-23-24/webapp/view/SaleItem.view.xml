@@ -1,0 +1,55 @@
+<mvc:View
+    controllerName="erp2324.controller.SaleItem"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+>
+  <Page
+        id="page"
+        title="SaleItem - {Vbeln}"
+    >
+    <content>
+    <Table id="SaleItemTable" items="SaleSet('1')/SaleItemSet">
+    <columns>
+    <Column id="Vbeln" width="12em">
+      <VBox>
+        <Text text="vbeln" />
+      </VBox>
+    </Column>
+     <Column id="Posnr" width="12em">
+      <VBox>
+        <Text text="Posnr" />
+      </VBox>
+    </Column>
+     <Column id="Matnr" width="12em">
+      <VBox>
+        <Text text="Matnr" />
+      </VBox>
+    </Column>
+     <Column id="Arktx" width="12em">
+      <VBox>
+        <Text text="Arktx" />
+      </VBox>
+    </Column>
+         <Column id="Matkl" width="12em">
+      <VBox>
+        <Text text="Matkl" />
+      </VBox>
+    </Column>
+    </columns>
+    <items>
+         <ColumnListItem vAlign="Middle">
+      <cells>
+        <ObjectIdentifier title="{Vbeln}" />
+        <Text text="{Posnr}" />
+        <Text text="{Matnr}" />
+        <Text text="{Arktx}" />
+        <Text text="{Matkl}" />
+      </cells>
+    </ColumnListItem>
+    </items>
+    </Table>
+    </content>
+    </Page>
+</mvc:View>

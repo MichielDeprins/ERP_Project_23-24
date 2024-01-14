@@ -3,16 +3,15 @@
     xmlns:f="sap.f"
     xmlns:mvc="sap.ui.core.mvc" 
     displayBlock="true">
-    <Page id="page" title="{i18n>title}">
+      <Button icon="sap-icon://arrow-right" text="go to sales" type="Transparent" press="onNavToSales" />
+    <Page id="page" title="Materials">
     <content>
     <Table
                 id="MaterialTable"
                 items="{/MaterialSet}"
-                headerText="Materials (Click on an item to set as navigated)"
             >
             <headerToolbar>
 				<OverflowToolbar>
-					<Title text="Materials" level="H2"/>
 					<ToolbarSpacer/>
                     <Button icon="sap-icon://excel-attachment" press="onExport"/>
 					<Button

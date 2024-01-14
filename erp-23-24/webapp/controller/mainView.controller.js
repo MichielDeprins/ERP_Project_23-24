@@ -35,6 +35,9 @@ sap.ui.define(
           materialParam: oSelectedMaterial,
         });
       },
+      onNavToSales: function (oEvent) {
+        this.getOwnerComponent().getRouter().navTo("sales");
+      },
 
       handleSorterButtonPressed: function () {
         SortAndFilterHelper.handleSortButtonPressed(
