@@ -1,79 +1,53 @@
 <mvc:View
     controllerName="erp2324.controller.Material"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.uxap"
-    xmlns:m="sap.m"
+    xmlns="sap.m"
     xmlns:f="sap.f"
-    xmlns:form="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
 >
-    <ObjectPageLayout
-        id="ObjectPageLayout"
-        showTitleInHeaderContent="true"
-        alwaysShowContentHeader="false"
-        headerContentPinnable="true"
-        isChildPage="true"
-        upperCaseAnchorBar="false"
+  <Page
+        id="page"
+        title="Material - {Matnr}"
     >
-    <headerTitle>
-            <ObjectPageDynamicHeaderTitle>
-                <actions />
-            </ObjectPageDynamicHeaderTitle>
-        </headerTitle>
-        <headerContent>
-            <m:FlexBox
-                wrap="Wrap"
-                fitContainer="true"
-                alignItems="Stretch"
-            >
-                <m:VBox
-                    justifyContent="Center"
-                    class="sapUiSmallMarginEnd"
-                >
-                    <m:Label text="Main Category" />
-                </m:VBox>
-                <m:VBox
-                    justifyContent="Center"
-                    class="sapUiSmallMarginEnd"
-                >
-                    <m:Label text="Subcategory" />
-                </m:VBox>
-            </m:FlexBox>
-        </headerContent>
-         <sections>
-            <ObjectPageSection title="General Information">
-                <subSections>
-                    <ObjectPageSubSection>
-                        <blocks>
-                            <form:SimpleForm
-                                maxContainerCols="2"
-                                editable="false"
-                                layout="ResponsiveGridLayout"
-                                labelSpanL="12"
-                                labelSpanM="12"
-                                emptySpanL="0"
-                                emptySpanM="0"
-                                columnsL="1"
-                                columnsM="1"
-                            >
-                                <form:content>
-                                    <m:Label text="test" />
-                                    <m:Label text="test" />
-                                </form:content>
-                            </form:SimpleForm>
-                        </blocks>
-                    </ObjectPageSubSection>
-                </subSections>
-            </ObjectPageSection>
-
-            <ObjectPageSection title="deliveries">
-                <subSections>
-                    <ObjectPageSubSection>
-                        <blocks>
-                            <m:Text text="table?" />
-                        </blocks>
-                    </ObjectPageSubSection>
-                </subSections>
-            </ObjectPageSection>
-        </sections>
-</ObjectPageLayout> 
+   <Button icon="sap-icon://arrow-left" text="Back to Materials" type="Transparent" press="ButtonToMaterials" />
+      <content>
+<Table
+  id="manufacturerTable"
+  items="{/MaterialSet('TRFR3393')/ManufacturerSet}"
+>
+  <headerToolbar>
+    <OverflowToolbar>
+      <Title text="Manufacturers" level="H2" />
+      <ToolbarSpacer />
+    </OverflowToolbar>
+  </headerToolbar>
+  <columns>
+    <Column id="Matnr" width="12em">
+      <VBox>
+        <Text text="Material number" />
+      </VBox>
+    </Column>
+    <Column id="Werks" width="12em">
+      <VBox>
+        <Text text="Plant" />
+      </VBox>
+    </Column>
+    <Column id="Lgort" width="12em">
+      <VBox>
+        <Text text="Storage location" />
+      </VBox>
+    </Column>
+  </columns>
+  <items>
+    <ColumnListItem vAlign="Middle">
+      <cells>
+        <ObjectIdentifier title="{Matnr}" />
+        <Text text="{Werks}" />
+        <Text text="{Lgort}" />
+      </cells>
+    </ColumnListItem>
+  </items>
+</Table>
+    </content>
+    </Page>
 </mvc:View>

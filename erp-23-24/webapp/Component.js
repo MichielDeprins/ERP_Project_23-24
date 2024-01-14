@@ -31,11 +31,24 @@ sap.ui.define(
         });
         this.setModel(oModel, "settings");
 
-        // enable routing
-        this.getRouter();
-
+        this.getRouter().initialize();
+        this.getRouter().attachBeforeRouteMatched(
+          this._onBeforeRouteMatched,
+          this
+        );
         // set the device model
         this.setModel(models.createDeviceModel(), "device");
+      },
+      _onBeforeRouteMatched: function (oEvent) {
+        var oModel = this.getModel("settings"),
+          sLayout = oEvent.getParameters().arguments.layout;
+
+        // If there is no layout parameter, set a default layout (normally OneColumn)
+        if (!sLayout) {
+          sLayout = fioriLibrary.LayoutType.OneColumn;
+        }
+
+        oModel.setProperty("/layout", sLayout);
       },
     });
   }

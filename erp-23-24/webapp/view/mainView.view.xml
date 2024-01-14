@@ -10,6 +10,21 @@
                 items="{/MaterialSet}"
                 headerText="Materials (Click on an item to set as navigated)"
             >
+            <headerToolbar>
+				<OverflowToolbar>
+					<Title text="Materials" level="H2"/>
+					<ToolbarSpacer/>
+					<Button
+						tooltip="Sort"
+						icon="sap-icon://sort"
+						press="handleSorterButtonPressed"/>
+					<Button
+						tooltip="Filter"
+						icon="sap-icon://filter"
+						press="handleFilterButtonPressed"/>
+
+				</OverflowToolbar>
+			</headerToolbar>
             <columns>
              <Column
                         id="Materials"
@@ -36,8 +51,7 @@
                         hAlign="End"
                     >
                         <VBox>
-                            <Text text="Material Group
-" />
+                            <Text text="Material Group" />
                         </VBox>
                     </Column>
                 <Column

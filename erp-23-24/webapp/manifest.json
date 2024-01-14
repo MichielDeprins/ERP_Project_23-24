@@ -103,6 +103,41 @@
       "type": "XML",
       "async": true,
       "id": "fc1"
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.f.routing.Router",
+        "type": "View",
+        "viewType": "XML",
+        "path": "erp2324.view",
+        "controlId": "fcl",
+        "transition": "slide",
+        "bypassed": {},
+        "async": true,
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "pattern": ":?layout:",
+          "name": "main",
+          "target": ["main"]
+        },
+        {
+          "pattern": "detail/{materialParam}/{layout}",
+          "name": "detail",
+          "target": ["main", "detail"]
+        }
+      ],
+      "targets": {
+        "main": {
+          "viewName": "MainView",
+          "controlAggregation": "beginColumnPages"
+        },
+        "detail": {
+          "viewName": "Material",
+          "controlAggregation": "midColumnPages"
+        }
+      }
     }
   }
 }
