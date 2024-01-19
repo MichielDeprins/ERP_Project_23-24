@@ -5,11 +5,43 @@
 		confirm="handleFilterDialogConfirm">
 		<filterItems>
 			<ViewSettingsFilterItem
-				text="Matnr"
+				text="Material Number"
 				key="Matnr"
 				multiSelect="false">
 				<items>
                     <ViewSettingsItem text="TRFR3393" key="TRFR3393" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+				text="Material Description"
+				key="Maktx"
+				multiSelect="false">
+				<items>
+                    <ViewSettingsItem text="Basic Casing" key="Basic Casing" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+				text="Material Group"
+				key="Matkl"
+				multiSelect="false">
+				<items>
+                    <ViewSettingsItem text="UTIL" key="UTIL" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+				text="Material Type"
+				key="Mtart"
+				multiSelect="false">
+				<items>
+                    <ViewSettingsItem text="PROD" key="PROD" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+				text="Industry Sector"
+				key="Mbrsh"
+				multiSelect="false">
+				<items>
+                    <ViewSettingsItem text="M" key="M" />
 				</items>
 			</ViewSettingsFilterItem>
 		</filterItems>

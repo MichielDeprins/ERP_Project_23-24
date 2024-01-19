@@ -3,13 +3,29 @@
     xmlns:f="sap.f"
     xmlns:mvc="sap.ui.core.mvc" 
     displayBlock="true">
-    <Button icon="sap-icon://arrow-left" text="go to Materials" type="Transparent" press="onNavToMain" />
+  
     <Page id="page" title="Sales">
     <content>
     <Table
         id="SalesTable"
         items="{/SaleSet}"
     >
+      <headerToolbar>
+				<OverflowToolbar>
+                   <Button icon="sap-icon://arrow-left" text="go to Materials" type="Transparent" press="onNavToMain" />
+					<ToolbarSpacer/>
+                   
+					<Button
+						tooltip="Sort"
+						icon="sap-icon://sort"
+						press="handleSorterButtonPressed"/>
+					<Button
+						tooltip="Filter"
+						icon="sap-icon://filter"
+						press="handleFilterButtonPressed"/>
+
+				</OverflowToolbar>
+			</headerToolbar>
     <columns>
         <Column 
         id="Vbeln"

@@ -3,7 +3,6 @@
     xmlns:f="sap.f"
     xmlns:mvc="sap.ui.core.mvc" 
     displayBlock="true">
-      <Button icon="sap-icon://arrow-right" text="go to sales" type="Transparent" press="onNavToSales" />
     <Page id="page" title="Materials">
     <content>
     <Table
@@ -12,6 +11,7 @@
             >
             <headerToolbar>
 				<OverflowToolbar>
+                  <Button icon="sap-icon://arrow-right" text="go to sales" type="Transparent" press="onNavToSales" />
 					<ToolbarSpacer/>
                     <Button icon="sap-icon://excel-attachment" press="onExport"/>
 					<Button

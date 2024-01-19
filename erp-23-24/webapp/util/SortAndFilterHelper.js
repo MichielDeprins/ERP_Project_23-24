@@ -24,7 +24,6 @@ sap.ui.define(
       },
       getViewSettingsDialog: function (sDialogFragmentName, oController) {
         var pDialog = oController._mViewSettingsDialogs[sDialogFragmentName];
-
         if (!pDialog) {
           pDialog = Fragment.load({
             id: oController.getView().getId(),
